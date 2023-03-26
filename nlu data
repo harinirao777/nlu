@@ -1,0 +1,66 @@
+import yaml
+
+data = {
+    'version': '2.0',
+    'nlu': [
+        {
+            'intent': 'greet',
+            'examples': [
+                {'text': 'hi'},
+                {'text': 'hello'},
+                {'text': 'hey_there'},
+                {'text': 'good_morning'},
+                {'text': 'good_afternoon'}
+            ]
+        },
+        {
+            'intent': 'recommend_product',
+            'examples': [
+                {'text': 'Can you recommend a good face wash?'},
+                {'text': "What's a good moisturizer for dry skin?"},
+                {'text': "I'm looking for a product to help with acne. Any recommendations?"},
+                {'text': 'What do you recommend for oily skin?'}
+            ]
+        },
+        {
+            'intent': 'ask_price',
+            'examples': [
+                {'text': 'How much does the Natural Moisturizing Factors + HA cost?'},
+                {'text': "What's the price of the Hydrating Cleanser?"},
+                {'text': 'Can you tell me how much the Niacinamide 10% + Zinc 1% costs?'},
+                {'text': 'What is the cost of the Buffet serum?'}
+            ]
+        },
+        {
+            'intent': 'thanks',
+            'examples': [
+                {'text': 'Thank you!'},
+                {'text': 'Thanks'},
+                {'text': 'That was helpful'},
+                {'text': 'I appreciate your help'}
+            ]
+        }
+    ]
+}
+
+with open('data.yaml', 'w') as outfile:
+    yaml.dump(data, outfile, default_flow_style=False)
+
+User: Hi, can you recommend a good face wash for oily skin?
+Intent: recommend_product
+Entity: skin_type (oily)
+
+User: How much does the Hydrating Cleanser cost?
+Intent: ask_price
+Entity: product_name (Hydrating Cleanser)
+
+User: Hi there! Can you recommend a good face wash?
+User: Hey, do you have any products for oily skin?
+User: How much does the Natural Moisturizing Factors + HA cost?
+User: Hello, can you suggest a good serum for dry skin?
+User: What's the price of the Buffet serum?
+User: Hi! I'm looking for a product to help with acne. Any recommendations?
+User: Can you tell me the price of the Hydrating Cleanser?
+User: Hey, what do you recommend for combination skin?
+User: I'm looking for a natural face wash. Do you have any?
+User: How much does the Niacinamide 10% + Zinc 1% cost?
