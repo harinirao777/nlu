@@ -1,0 +1,29 @@
+language: en
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: CRFEntityExtractor
+  - name: CountVectorsFeaturizer
+  - name: EmbeddingIntentClassifier
+  
+  ## intent:greet
+- Hi there!
+- Hello
+- Hey
+
+## intent:goodbye
+- Goodbye
+- Bye
+- See you later
+
+## intent:recommend_product
+- Can you recommend a good face wash?
+- What's a good moisturizer for dry skin?
+- I'm looking for a product to help with acne. Any recommendations?
+- What do you recommend for oily skin?
+
+## intent:ask_price
+- How much does the Natural Moisturizing Factors + HA cost?
+- What's the price of the Hydrating Cleanser?
+- Can you tell me how much the Niacinamide 10% + Zinc 1% costs?
+- What's the cost of the Buffet serum?
